@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PDF_M - Merge Your PDFs Easily</title>
+
+    <!-- Bootstrap & Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+
+    <style>
+      body {
+        background: linear-gradient(135deg, #e0eafc, #cfdef3);
+        font-family: "Poppins", sans-serif;
+        min-height: 100vh;
+        scroll-behavior: smooth; /* smooth scrolling for navbar links */
+      }
+
+      nav.navbar {
+        background: #ffffff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .hero {
+        text-align: center;
+        padding: 80px 20px 40px;
+      }
+
+      .hero h1 {
+        font-weight: 700;
+        font-size: 2.5rem;
+        color: #0d6efd;
+      }
+
+      .hero p {
+        color: #555;
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 15px auto;
+      }
+
+      .upload-card {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        max-width: 550px;
+        margin: 30px auto;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .upload-card:hover {
+        transform: scale(1.02);
+      }
+
+      .btn-primary {
+        background: linear-gradient(90deg, #007bff, #00c6ff);
+        border: none;
+        transition: 0.3s;
+      }
+
+      .btn-primary:hover {
+        background: linear-gradient(90deg, #0062cc, #00a1d6);
+      }
+
+      footer {
+        text-align: center;
+        padding: 20px;
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+      /* === About Section === */
+      #about {
+        background-color: #ffffff;
+        padding: 70px 20px;
+      }
+
+      #about h2 {
+        color: #0d6efd;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+
+      #about p {
+        color: #555;
+        max-width: 700px;
+        margin: 0 auto 30px;
+      }
+
+      /* Fade-in animation */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .delay-1 {
+        transition-delay: 0.2s;
+      }
+      .delay-2 {
+        transition-delay: 0.4s;
+      }
+      .delay-3 {
+        transition-delay: 0.6s;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold text-primary" href="#"
+          ><i class="fa-solid fa-file-pdf"></i> PDF_M</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#howitworks">How it Works</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a> <!-- scrolls down -->
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1>
+        <i class="fa-solid fa-file-circle-plus"></i> Merge Your PDFs Seamlessly
+      </h1>
+      <p>
+        Upload multiple PDF files and merge them instantly — secure, fast, and
+        free. No sign-up needed!
+      </p>
+    </section>
+
+    <!-- Upload Form -->
+    <div class="upload-card fade-in delay-1">
+      <form method="post" action="/merge" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label for="inputGroupFile02" class="form-label fw-semibold"
+            >Select your PDF files</label
+          >
+          <div class="input-group">
+            <input
+              type="file"
+              name="pdfs"
+              class="form-control"
+              id="inputGroupFile02"
+              multiple
+              accept=".pdf"
+              required
+            />
+            <label class="input-group-text" for="inputGroupFile02"
+              ><i class="fa-solid fa-upload"></i
+            ></label>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary w-100 py-2">
+          <i class="fa-solid fa-layer-group me-2"></i> Merge PDFs
+        </button>
+      </form>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="text-center fade-in delay-2">
+      <div class="container">
+        <h2>About PDF_M</h2>
+        <p>
+          PDF_M is your go-to PDF merger tool designed for simplicity and
+          security. Whether you’re combining study notes, reports, or
+          presentations, our lightweight web tool makes it fast and reliable.
+        </p>
+
+        <div class="row mt-5">
+          <div class="col-md-4 fade-in delay-1">
+            <i class="fa-solid fa-lock text-primary fa-2x mb-3"></i>
+            <h5>Secure</h5>
+            <p>Your files are processed securely and never stored permanently.</p>
+          </div>
+          <div class="col-md-4 fade-in delay-2">
+            <i class="fa-solid fa-bolt text-primary fa-2x mb-3"></i>
+            <h5>Fast</h5>
+            <p>Merge PDFs instantly with no extra steps or sign-ups.</p>
+          </div>
+          <div class="col-md-4 fade-in delay-3">
+            <i class="fa-solid fa-globe text-primary fa-2x mb-3"></i>
+            <h5>Accessible</h5>
+            <p>Works on all devices — no installation required.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2025 PDF_M | Made by Wayne Enterprises</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Fade-in Animation Script -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const fadeElements = document.querySelectorAll(".fade-in");
+
+        const observer = new IntersectionObserver(
+          entries => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.2 }
+        );
+
+        fadeElements.forEach(el => observer.observe(el));
+      });
+    </script>
+  </body>
+</html>
